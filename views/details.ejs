@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Asset Details: <%= asset.assetNo %></h3>
+        <span class="badge bg-primary">Cost Center: <%= asset.costCenter %></span>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush fs-5">
+            <li class="list-group-item"><strong>Acquisition Date:</strong> <%= asset.acquisitionDate %></li>
+            <li class="list-group-item"><strong>Useful Life:</strong> <%= asset.usefulLife %> Years</li>
+            <li class="list-group-item"><strong>Original Cost:</strong> <%= formatCurrency(asset.cost) %></li>
+            <li class="list-group-item text-danger"><strong>Accumulated Depreciation:</strong> -<%= formatCurrency(asset.accDepreciation) %></li>
+            <li class="list-group-item text-success bg-light mt-3 border rounded">
+                <strong>Current Net Book Value:</strong> <%= formatCurrency(nbv) %>
+            </li>
+        </ul>
+        <div class="mt-4">
+            <a href="/assets" class="btn btn-secondary">Back to Register</a>
+            <a href="/assets/<%= asset.id %>/edit" class="btn btn-warning">Edit</a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
